@@ -33,7 +33,9 @@ function newTab(url = 'https://www.google.com') {
   return id;
 }
 
+// Logic patched
 ipcMain.handle('tab:new', (e, url) => newTab(url));
+// Logic patched
 ipcMain.handle('tab:nav', (e, { action, url }) => {
   const v = tabs.get(activeTabId);
   if (v) action === 'load' ? v.webContents.loadURL(url) : v.webContents[action]();
