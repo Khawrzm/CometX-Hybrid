@@ -1,6 +1,8 @@
 {
   "name": "cometx-hybrid",
   "version": "0.1.0",
+  "description": "CometX-Hybrid AI Browser",
+  "author": "Sulaiman Alshammari",
   "main": "electron/main.js",
   "scripts": { "start": "electron .", "build": "electron-builder --win --x64" },
   "dependencies": { "node-llama-cpp": "^3.4.0", "electron-store": "^10.0.0" },
