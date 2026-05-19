@@ -1,4 +1,5 @@
 const { app, BrowserWindow, BrowserView, ipcMain, session, Menu } = require('electron');
+const { registerAgentHandlers } = require("./agent-action");
 const path = require('path');
 const Store = require('electron-store').default;
 const store = new Store();
@@ -9,6 +10,7 @@ let activeTabId = null;
 const SIDECAR_WIDTH = 380;
 
 function createWindow() {
+  registerAgentHandlers(win);
   win = new BrowserWindow({ width: 1400, height: 900, title: 'CometX', backgroundColor: '#0b0b0f', webPreferences: { preload: path.join(__dirname, 'preload.js'), contextIsolation: true, nodeIntegration: false, sandbox: true } });
   win.loadFile(path.join(__dirname, '..', 'ui', 'shell.html'));
   win.on('resize', layout);
